@@ -15,7 +15,9 @@ public class ScoreManager : MonoBehaviour
         pit.ResetAllPins();
         totalScore += currentFrameScore;
         currentFrameScore = 0;
+        FindObjectOfType<UIManager>().FrameFinished(currentFrame, totalScore);
         currentFrame++;
+
     }
 
     public void SetFrameScore(int pins)

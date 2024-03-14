@@ -39,12 +39,16 @@ public class PitController : MonoBehaviour
     public void CheckPins()
     {
         int amountOfPins = 0;
+        int hitsInCurrentThrow = 0;
 
         foreach(Pin selectedPin in pins)
         {
             if (selectedPin.IsPinFallen()) //IF THEY ARE FALLEN, HIDE THEM AND ADD 1 TO AMOUNT
             {
+                if (selectedPin.gameObject.activeInHierarchy) hitsInCurrentThrow++;
+
                 amountOfPins += 1;
+
                 selectedPin.gameObject.SetActive(false);
             }
         }
@@ -53,7 +57,7 @@ public class PitController : MonoBehaviour
 
         scoreManager.SetFrameScore(amountOfPins);
 
-
+        FindObjectOfType<UIManager>().ThrowHappened(scoreManager.currentFrame, hitsInCurrentThrow, manager.numberOfThrows);
         if (amountOfPins == 10) //IF ALL OF THEM ARE FALLEN
         {
             scoreManager.FinishFrame(); //FINISH THE FRAME
