@@ -56,4 +56,9 @@ public class BallController : MonoBehaviour
         }
 
     }
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log("Some collision happened " + collision.gameObject.name);
+    }
 }
