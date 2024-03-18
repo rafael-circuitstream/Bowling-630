@@ -6,6 +6,8 @@ public class ScoreManager : MonoBehaviour
 {
     public GameManager manager;
     public PitController pit;
+    public UIManager uiManager;
+
     public int currentFrame;
     public int totalScore;
     public int currentFrameScore;
@@ -20,6 +22,7 @@ public class ScoreManager : MonoBehaviour
 
     public void SetFrameScore(int pins)
     {
+        uiManager.SetScoreOnCurrentFrame(pins, manager.numberOfThrows, currentFrame);
         currentFrameScore = pins;
     }
 
