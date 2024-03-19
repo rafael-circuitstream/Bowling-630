@@ -6,8 +6,8 @@ public class UIFrame : MonoBehaviour
 {
     public TextMeshProUGUI firstThrowText;
     public TextMeshProUGUI secondThrowText;
-    public TextMeshProUGUI totalScore;
-
+    public TextMeshProUGUI totalScoreText;
+    public TextMeshProUGUI frameTitleText;
     int firstThrowMemory;
     int secondThrowMemory;
     // Start is called before the first frame update
@@ -20,6 +20,16 @@ public class UIFrame : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetFrameNumber(int number)
+    {
+        frameTitleText.text = number.ToString();
+    }
+
+    public void SetTotalScoreText(int totalScore)
+    {
+        totalScoreText.text = totalScore.ToString();
     }
 
     public void SetFrameScore(int amountOfPins, int currentThrowNumber)
@@ -43,8 +53,8 @@ public class UIFrame : MonoBehaviour
         }
         else if(currentThrowNumber == 2)
         {
-            secondThrowMemory = amountOfPins;
-            Debug.Log(firstThrowMemory + secondThrowMemory);
+            secondThrowMemory = amountOfPins - firstThrowMemory;
+
             if(firstThrowMemory + secondThrowMemory == 10) //if I have a 'spare' //IF FIRST THROW + SECOND THROW == 10
             {
                 //SET SECOND TEXT TO BE A '/'
@@ -53,7 +63,7 @@ public class UIFrame : MonoBehaviour
             else
             {
                 //CHANGE TEXT ON THE RIGHT
-                secondThrowText.text = (secondThrowMemory - firstThrowMemory).ToString();
+                secondThrowText.text = secondThrowMemory.ToString();
             }
 
         }

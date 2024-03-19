@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (numberOfThrows < 2) //CREATING THE BALL
+        if (numberOfThrows < 2 && scoreManager.currentFrame < 10) //CREATING THE BALL
         {
             Instantiate(ballPrefab, transform.position, Quaternion.identity);
             numberOfThrows++;
