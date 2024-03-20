@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    public AudioSource ballRollingSound;
+
     public GameObject _arrow;
     public Rigidbody _rigidbody;
     public float _speed;
@@ -12,10 +14,13 @@ public class BallController : MonoBehaviour
 
     bool _itWasThrown;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+    }
+
+    public void PlayBallThrowSound()
+    {
+        ballRollingSound.Play();
     }
 
     // Update is called once per frame
@@ -30,7 +35,8 @@ public class BallController : MonoBehaviour
         {
             _rigidbody.AddForce(_arrow.transform.up * _pushForce, ForceMode.Impulse);
             _itWasThrown = true;
-            
+            //play sound
+            PlayBallThrowSound();
             _arrow.SetActive(false);
         }
 
