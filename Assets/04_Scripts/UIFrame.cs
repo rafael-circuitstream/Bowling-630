@@ -6,29 +6,44 @@ public class UIFrame : MonoBehaviour
 {
     public TextMeshProUGUI firstThrowText;
     public TextMeshProUGUI secondThrowText;
+    public TextMeshProUGUI thirdThrowLastFrame; //WARNING!!!
+
     public TextMeshProUGUI totalScoreText;
     public TextMeshProUGUI frameTitleText;
+
+    public bool strike;
+    public bool spare;
+
     int firstThrowMemory;
     int secondThrowMemory;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
+    public void SetLastFrameScore()
+    {
+
+    }
     public void SetFrameNumber(int number)
     {
         frameTitleText.text = number.ToString();
     }
 
+    public void UpdateIncreasedScore(int totalScore)
+    {
+
+    }
     public void SetTotalScoreText(int totalScore)
     {
+
         totalScoreText.text = totalScore.ToString();
     }
 
@@ -42,6 +57,7 @@ public class UIFrame : MonoBehaviour
                 //SET SECOND TEXT TO BE A 'X'
                 
                 secondThrowText.text = "X";
+                strike = true;
             }
             else
             {
@@ -59,6 +75,7 @@ public class UIFrame : MonoBehaviour
             {
                 //SET SECOND TEXT TO BE A '/'
                 secondThrowText.text = "/";
+                spare = true;
             }
             else
             {

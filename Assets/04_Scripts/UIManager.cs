@@ -43,7 +43,14 @@ public class UIManager : MonoBehaviour
         spareImage.SetActive(false);
         strikeImage.SetActive(false);
     }
-
+    public void UpdatePreviousFrame(int totalScore, int currentFrame)
+    {
+        if(currentFrame - 1 >= 0)
+        {
+            frames[currentFrame - 1].SetTotalScoreText(totalScore);
+        }
+        
+    }
     public void SetTotalScoreOnCurrentFrame(int totalScore, int currentFrame)
     {
         Debug.Log("CURRENT FRAME: " + currentFrame);
@@ -52,7 +59,6 @@ public class UIManager : MonoBehaviour
 
     public void SetScoreOnCurrentFrame(int amountOfPins, int currentThrowNumber, int currentFrame)
     {
-
         frames[currentFrame].SetFrameScore(amountOfPins, currentThrowNumber);
     }
 

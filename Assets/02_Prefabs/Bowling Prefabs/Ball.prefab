@@ -275,6 +275,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThrowingArrow
       objectReference: {fileID: 0}
+    - target: {fileID: 2705230173596102268, guid: fb7866d5388a3914fabc4f9ad9ec2852,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4271740314904405151, guid: fb7866d5388a3914fabc4f9ad9ec2852,
         type: 3}
       propertyPath: m_RootOrder

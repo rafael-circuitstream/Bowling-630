@@ -12,7 +12,13 @@ public class GameManager : MonoBehaviour
     {
         PrepareForThrow();
     }
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
     public void Strike() //WHEN ALL PINS ARE DOWN, NO MATTER THE THROW NUMBER
     {
         numberOfThrows = 0;

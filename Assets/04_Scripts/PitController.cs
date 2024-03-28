@@ -28,12 +28,14 @@ public class PitController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Ball"))
         {
-
             //WE WANT TO START ANOTHER THROW
             Destroy(other.gameObject);
-            Invoke("CheckPins", 1.5f); //DELAY TO CHECK FOR FALLEN PINS
-
         }    
+    }
+
+    public void DelayedCheckPins()
+    {
+        Invoke("CheckPins", 1.5f);//DELAY TO CHECK FOR FALLEN PINS
     }
 
     public void CheckPins()
@@ -57,6 +59,7 @@ public class PitController : MonoBehaviour
         if (amountOfPins == 10) //IF ALL OF THEM ARE FALLEN
         {
             scoreManager.FinishFrame(); //FINISH THE FRAME
+
             manager.Strike(); //AND ALSO TELL THE GAME MANAGER THAT WE WANT ANOTHER BALL
             //AND RESET THE AMOUNT OF THROWNS
         }

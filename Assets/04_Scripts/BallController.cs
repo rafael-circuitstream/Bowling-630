@@ -13,7 +13,15 @@ public class BallController : MonoBehaviour
     public float _maxDistance;
 
     bool _itWasThrown;
+    private void OnDestroy()
+    {
+        PitController pit = FindObjectOfType<PitController>();
+        if(pit != null)
+        {
+            pit.DelayedCheckPins();
+        }
 
+    }
     void Start()
     {
     }
@@ -38,6 +46,7 @@ public class BallController : MonoBehaviour
             //play sound
             PlayBallThrowSound();
             _arrow.SetActive(false);
+            Destroy(gameObject, 10f);
         }
 
         float direction = Input.GetAxisRaw("Horizontal");
